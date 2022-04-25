@@ -36,7 +36,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void dropUsersTable() {
         String dropTable = "DROP TABLE IF EXISTS users";
         try (Statement statement = connection.createStatement()) {
-            statement.execute(dropTable);
+            statement.executeUpdate(dropTable);
             connection.commit();
         } catch (SQLException e) {
             System.out.println("Couldn't delete users table:" + e.getMessage());
@@ -53,7 +53,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String addUser = "INSERT INTO users (name, lastName, age) VALUES ('" + name + "', '" + lastName + "', " + age + ")";
 
         try (Statement statement = connection.createStatement()) {
-            statement.execute(addUser);
+            statement.executeUpdate(addUser);
             connection.commit();
         } catch (SQLException e) {
             System.out.println("Couldn't save user:" + e.getMessage());
@@ -69,7 +69,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void removeUserById(long id) {
         String removeUser = "DELETE FROM users WHERE id = " + id + "";
         try (Statement statement = connection.createStatement()) {
-            statement.execute(removeUser);
+            statement.executeUpdate(removeUser);
             connection.commit();
         } catch (SQLException e) {
             System.out.println("Couldn't revome user:" + e.getMessage());
@@ -108,7 +108,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void cleanUsersTable() {
         String deleteUsers = "DELETE FROM users";
         try (Statement statement = connection.createStatement()) {
-            statement.execute(deleteUsers);
+            statement.executeUpdate(deleteUsers);
             connection.commit();
         } catch (SQLException e) {
             System.out.println("Couldn't clear the table:" + e.getMessage());
