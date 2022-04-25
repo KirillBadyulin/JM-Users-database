@@ -33,9 +33,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="01241a36-88f2-4d63-92af-f805a3372a76" object-ref="consoles/Java Mentor" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="01241a36-88f2-4d63-92af-f805a3372a76" />
