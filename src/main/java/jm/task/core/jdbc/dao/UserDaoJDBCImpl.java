@@ -25,6 +25,11 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             System.out.println("Couldn't create users table:" + e.getMessage());
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException e2) {
+                System.out.println("Couldn't perform rollback");
+            }
         }
     }
 
@@ -36,6 +41,11 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             System.out.println("Couldn't delete users table:" + e.getMessage());
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException e2) {
+                System.out.println("Couldn't perform rollback");
+            }
         }
     }
 
@@ -48,6 +58,11 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             System.out.println("Couldn't save user:" + e.getMessage());
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException e2) {
+                System.out.println("Couldn't perform rollback");
+            }
         }
     }
 
@@ -59,6 +74,11 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             System.out.println("Couldn't revome user:" + e.getMessage());
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException e2) {
+                System.out.println("Couldn't perform rollback");
+            }
         }
     }
 
@@ -93,6 +113,12 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             System.out.println("Couldn't clear the table:" + e.getMessage());
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException e2) {
+                System.out.println("Couldn't perform rollback");
+            }
+
         }
     }
 
