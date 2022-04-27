@@ -21,20 +21,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void createUsersTable() {
-//        Transaction transaction = null;
-//        String dropTableQuery = "CREATE TABLE IF NOT EXISTS users (id int AUTO_INCREMENT PRIMARY KEY, name text, lastname text, age int)";
-//
-//        try (Session session = Util.getSessionFactory().openSession()) {
-//            transaction = session.beginTransaction();
-//            Query query = session.createSQLQuery(dropTableQuery).addEntity(User.class);
-//
-//            transaction.commit();
-//        } catch (Exception e) {
-//            System.out.println("Couldn't create the table: " + e.getMessage());
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
-//        }
         Session session = getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
@@ -51,20 +37,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
-//        Transaction transaction = null;
-//        String dropTableQuery = "DROP TABLE IF EXISTS users";
-//
-//        try (Session session = getSessionFactory().openSession()) {
-//            transaction = session.beginTransaction();
-//            Query query = session.createNativeQuery(dropTableQuery);
-//            query.executeUpdate();
-//            transaction.commit();
-//        } catch (Exception e) {
-//            System.out.println("Couldn't drop the table: " + e.getMessage());
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
-//        }
         Session session = getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
