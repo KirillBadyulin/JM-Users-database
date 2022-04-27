@@ -72,14 +72,23 @@ public class UserServiceTest {
         try {
             userService.dropUsersTable();
             userService.createUsersTable();
-            userService.saveUser(testName, testLastName, testAge);
             List<User> userList = userService.getAllUsers();
+            for (User user : userList) {
+                System.out.println(user.toString());
+            }
+
+            userService.createUsersTable();
+            userService.saveUser(testName, testLastName, testAge);
+            userList = userService.getAllUsers();
+            for (User user : userList) {
+                System.out.println(user.toString());
+            }
 
             if (userList.size() != 1) {
                 Assert.fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
             }
         } catch (Exception e) {
-            Assert.fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e);
+            Assert.fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e.getMessage());
         }
     }
 

@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         // реализуйте алгоритм здесь
         UserService userService = new UserServiceImpl();
+
         userService.createUsersTable();
 
         userService.saveUser("John", "Snow", (byte) 23);
@@ -23,13 +24,16 @@ public class Main {
         System.out.println("User с именем – Daenerys добавлен в базу данных");
 
         List<User> users = userService.getAllUsers();
-        for (User user : users) {
-            System.out.println(user.toString());
+
+        if (users != null) {
+            for (User user : users) {
+                System.out.println(user.toString());
+            }
         }
 
-        userService.cleanUsersTable();
-        userService.dropUsersTable();
 
-        Util.close();
+        userService.cleanUsersTable();
+        //userService.dropUsersTable();
+
     }
 }
